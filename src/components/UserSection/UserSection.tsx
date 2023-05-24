@@ -12,7 +12,7 @@ interface Props {
 
 export const UserSection: FC<Props> = ({ handleEditUser, users }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 5;
+  const itemsPerPage = 10;
   const [query, setQuery] = useState('');
   const [sortType, setSortType] = useState('');
 

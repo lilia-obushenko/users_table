@@ -1,3 +1,5 @@
+import { FC } from 'react';
+import './Form.scss';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -5,10 +7,8 @@ import 'react-phone-input-2/lib/style.css';
 import PhoneInput from 'react-phone-input-2';
 import 'react-datepicker/dist/react-datepicker.css';
 import DatePicker from 'react-datepicker';
-import { FC, FormEvent, useEffect, useState } from 'react';
-import { collection, updateDoc, doc, addDoc } from 'firebase/firestore';
-import { firestore } from '../../firebase';
 import { User } from '../../typedefs';
+import { useForm } from '../../hooks/useForm';
 
 interface Props {
   users: User[],
@@ -18,69 +18,30 @@ interface Props {
 }
 
 export const UserForm: FC<Props> = (props) => {
-  const { editingUserId, users, getUsers, onUserId } = props;
+  const { 
+    editingUserId, 
+    users, 
+    getUsers, 
+    onUserId,
+  } = props;
 
-  const [name, setName] = useState('');
-  const [surname, setSurname] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [birthdate, setBirthdate] = useState(new Date());
-  const [error, setError] = useState(false);
-
-  const usersRef = collection(firestore, 'users');
-
-  useEffect(() => {
-    if (editingUserId) {
-      const userToEdit = users.find((user) => user.id === editingUserId);
-  
-      if (userToEdit) {
-        setName(userToEdit.name);
-        setSurname(userToEdit.surname);
-        setEmail(userToEdit.email);
-        setPhone(userToEdit.phone);
-        setBirthdate(userToEdit.birthdate);
-      }
-    }
-  }, [editingUserId, users])
-
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
-
-    const data = {
-      name,
-      surname,
-      email,
-      phone,
-      birthdate,
-    };
-
-    const hasEmptyField = Object.values(data).some((value) => value === '');
-
-    if (hasEmptyField) {
-      setError(true);
-
-      return;
-    }
-
-    if (editingUserId) {
-      await updateDoc(doc(usersRef, editingUserId), data);
-      onUserId('');
-      getUsers();
-    } else {
-      await addDoc(usersRef, data);
-      getUsers();
-    }
-
-    setName('');
-    setSurname('');
-    setEmail('');
-    setPhone('');
-    setBirthdate(new Date());
-    setError(false);
-  };
+  const {
+    error,
+    name,
+    surname,
+    email,
+    phone,
+    birthdate,
+    setName,
+    setSurname,
+    setEmail,
+    setPhone,
+    setBirthdate,
+    handleSubmit,
+  } = useForm({ users, editingUserId, getUsers, onUserId })
   
   return (
-    <Form style={{ maxWidth: '300px' }} onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3">
         <Form.Control
           value={name}
@@ -132,11 +93,10 @@ export const UserForm: FC<Props> = (props) => {
       </Button>
 
       {error && (
-        <p style={{ color: 'red', marginTop: '10px' }}>
+        <p className="form__error">
           Please enter all data
         </p>
       )}
     </Form>
-
   );
 };

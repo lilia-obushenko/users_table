@@ -1,6 +1,7 @@
 import { Button, Table } from "react-bootstrap";
 import { User } from "../../typedefs";
 import { FC } from "react";
+import './UsersTable.scss';
 
 interface Props {
   users: User[],

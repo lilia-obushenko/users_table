@@ -2,7 +2,7 @@
   "name": "test_task",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/lilia-obushenko/users_table",
+  "homepage": "https://lilia-obushenko.github.io/users_table",
   "dependencies": {
     "@mate-academy/students-ts-config": "0.0.4",
     "@testing-library/jest-dom": "^5.16.5",
@@ -17,6 +17,7 @@
     "react-dom": "^18.2.0",
     "react-phone-input-2": "^2.15.1",
     "react-scripts": "5.0.1",
+    "sass": "^1.62.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
