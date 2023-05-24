@@ -1,5 +1,6 @@
 <h1>About project</h1>
 
+- [DEMO](https://lilia-obushenko.github.io/users_table/)
 <p>This mini-project is implemented to add new users, saving them in firebase and updating them.</p>
 <p>The table consists of name, surname, email, phone number, birthdate of user.</p>
 
