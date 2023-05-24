@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/lilia-obushenko/users_table/static/css/main.f2782600.css",
-    "main.js": "/lilia-obushenko/users_table/static/js/main.656dfe39.js",
+    "main.css": "/lilia-obushenko/users_table/static/css/main.2b9ec061.css",
+    "main.js": "/lilia-obushenko/users_table/static/js/main.d3ae0bab.js",
     "static/js/787.e8769ff5.chunk.js": "/lilia-obushenko/users_table/static/js/787.e8769ff5.chunk.js",
     "index.html": "/lilia-obushenko/users_table/index.html",
-    "main.f2782600.css.map": "/lilia-obushenko/users_table/static/css/main.f2782600.css.map",
-    "main.656dfe39.js.map": "/lilia-obushenko/users_table/static/js/main.656dfe39.js.map",
+    "main.2b9ec061.css.map": "/lilia-obushenko/users_table/static/css/main.2b9ec061.css.map",
+    "main.d3ae0bab.js.map": "/lilia-obushenko/users_table/static/js/main.d3ae0bab.js.map",
     "787.e8769ff5.chunk.js.map": "/lilia-obushenko/users_table/static/js/787.e8769ff5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f2782600.css",
-    "static/js/main.656dfe39.js"
+    "static/css/main.2b9ec061.css",
+    "static/js/main.d3ae0bab.js"
   ]
 }
