@@ -1,3 +1,8 @@
+<h1>About project</h1>
+
+<p>This mini-project is implemented to add new users, saving them in firebase and updating them.</p>
+<p>The table consists of name, surname, email, phone number, birthdate of user.</p>
+
 <h2>Thechnical stack</h2>
 
 <ul>
